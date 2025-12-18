@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SGPA Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>SGPA Calculator</h1>
+        <p>Calculate your Semester Grade Point Average instantly.</p>
+        <a href="index.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+        </a>
+    </header>
+
+    <section class="calculator-box">
+        <div class="calc-header">
+            <h3>Enter Your Credits & Grades</h3>
+            <p>Add the credits for each subject and select the grade you obtained.</p>
+        </div>
+
+        <div id="subject-rows">
+            <div class="calc-row">
+              <input type="number" placeholder="Credits (e.g., 1.5)" class="credit-input" step="0.5">
+                <select class="grade-input">
+                    <option value="10">S (Outstanding) - 10</option>
+                    <option value="9">A (Excellent) - 9</option>
+                    <option value="8">B (Very Good) - 8</option>
+                    <option value="7">C (Good) - 7</option>
+                    <option value="6">D (Above Average) - 6</option>
+                    <option value="5">E (Average) - 5</option>
+                    <option value="0">F (Fail) - 0</option>
+                </select>
+                <button class="remove-btn" onclick="removeRow(this)"><i class="fa-solid fa-trash"></i></button>
+            </div>
+            
+            <div class="calc-row">
+                <input type="number" placeholder="Credits (e.g., 1.5)" class="credit-input" step="0.5">
+                <select class="grade-input">
+                    <option value="10">S (Outstanding) - 10</option>
+                    <option value="9">A (Excellent) - 9</option>
+                    <option value="8">B (Very Good) - 8</option>
+                    <option value="7">C (Good) - 7</option>
+                    <option value="6">D (Above Average) - 6</option>
+                    <option value="5">E (Average) - 5</option>
+                    <option value="0">F (Fail) - 0</option>
+                </select>
+                <button class="remove-btn" onclick="removeRow(this)"><i class="fa-solid fa-trash"></i></button>
+            </div>
+            
+             <div class="calc-row">
+               <input type="number" placeholder="Credits (e.g., 1.5)" class="credit-input" step="0.5">
+                <select class="grade-input">
+                    <option value="10">S (Outstanding) - 10</option>
+                    <option value="9">A (Excellent) - 9</option>
+                    <option value="8">B (Very Good) - 8</option>
+                    <option value="7">C (Good) - 7</option>
+                    <option value="6">D (Above Average) - 6</option>
+                    <option value="5">E (Average) - 5</option>
+                    <option value="0">F (Fail) - 0</option>
+                </select>
+                <button class="remove-btn" onclick="removeRow(this)"><i class="fa-solid fa-trash"></i></button>
+            </div>
+        </div>
+
+        <div class="calc-actions">
+            <button class="add-btn" onclick="addRow()">+ Add Subject</button>
+            <button class="calc-btn" onclick="calculateSGPA()">Calculate SGPA</button>
+        </div>
+
+        <div id="result-box" style="display: none;">
+            <h2>Your SGPA: <span id="sgpa-value">0.00</span></h2>
+            <p id="result-message">Great job!</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Built with ❤️ by Tarun | &copy; 2025 College Digital Library</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

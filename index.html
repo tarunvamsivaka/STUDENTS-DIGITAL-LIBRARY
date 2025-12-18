@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Digital Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="welcome-screen">
+        <div class="book-container">
+            <div class="book">
+                <div class="cover">
+                    <i class="fa-solid fa-book-journal-whills"></i>
+                    <p>Digital Library</p>
+                </div>
+                <div class="flipping-page page-1"></div>
+                <div class="flipping-page page-2"></div>
+                <div class="final-page">
+                    <h3>Welcome, Here!</h3>
+                    <p>Unlocking Library Files...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <h1>Tarun's Digital Library</h1>
+        <p>Select your semester to access study materials.</p>
+        
+        <a href="calculator.html" class="tool-btn">
+            <i class="fa-solid fa-calculator"></i> SGPA Calculator
+        </a>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" onkeyup="globalSearch()" placeholder="Search for a subject (e.g., Physics)...">
+            
+            <ul id="searchResults" class="search-results-list"></ul>
+        </div>
+    </header>
+
+    <section>
+        <h2>Select Semester</h2>
+        <ul>
+            <li>
+                <a href="sem1.html">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <br>Semester 1
+                </a>
+            </li>
+
+            <li>
+                <a href="sem2.html">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <br>Semester 2
+                </a>
+            </li>
+
+            <li>
+                <a href="sem3.html">
+                    <i class="fa-solid fa-server"></i>
+                    <br>Semester 3
+                </a>
+            </li>
+            <li>
+                <a href="sem4.html">
+                    <i class="fa-solid fa-book"></i>
+                    <br>Semester 4
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Built with ❤️ by Tarun | &copy; Students Digital Library | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
