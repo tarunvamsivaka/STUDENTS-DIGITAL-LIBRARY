@@ -44,21 +44,34 @@ function filterSemester(semId) {
 }
 
 /* =========================================
-   3. GLOBAL FUZZY SEARCH ENGINE (Improved)
+   3. GLOBAL FUZZY SEARCH ENGINE
    ========================================= */
 
+// MASTER DATABASE (Merged Sem 1, 2, 3, and 4)
 const subjectDatabase = [
+    // Sem 1 & 2
     { name: "Engineering Chemistry", url: "chemistry.html", icon: "fa-flask" },
     { name: "Engineering Physics", url: "physics.html", icon: "fa-atom" },
     { name: "Basic Mechanical Engineering", url: "bme.html", icon: "fa-wrench" },
     { name: "Intro To Programming", url: "programming.html", icon: "fa-code" },
     { name: "Basic Electrical & Electronics", url: "Beee.html", icon: "fa-bolt" },
     { name: "Data Structures", url: "data_structures.html", icon: "fa-laptop-code" },
+    
+    // Sem 3
     { name: "Discrete Mathematics", url: "dmgt.html", icon: "fa-calculator" },
     { name: "Managerial Economics", url: "mefa.html", icon: "fa-chart-line" },
     { name: "Computer Org & Arch", url: "co.html", icon: "fa-microchip" },
     { name: "Advanced Data Structures", url: "adsa.html", icon: "fa-diagram-project" },
     { name: "Database Mgmt Systems", url: "dbms.html", icon: "fa-database" },
+    
+    // Sem 4 (NEW)
+    { name: "Probability And Statistics", url: "p&s.html", icon: "fa-chart-pie" },
+    { name: "Software Engineering", url: "se.html", icon: "fa-gears" },
+    { name: "Java Programming", url: "java.html", icon: "fa-mug-hot" },
+    { name: "Operating System", url: "os.html", icon: "fa-terminal" },
+    { name: "Universal Human Values", url: "uhv.html", icon: "fa-hand-holding-heart" },
+
+    // Tools
     { name: "SGPA Calculator", url: "calculator.html", icon: "fa-calculator" }
 ];
 
@@ -96,7 +109,7 @@ function editDistance(s1, s2) {
     return costs[s2.length];
 }
 
-// 3. The UPDATED Search Function
+// 3. The Search Function
 function globalSearch() {
     const searchInput = document.getElementById('searchInput');
     const resultsContainer = document.getElementById('searchResults');
@@ -121,15 +134,13 @@ function globalSearch() {
         // --- CHECK 1: Direct Substring Match (Standard) ---
         if (subjectName.includes(input)) {
             matches.push(subject);
-            return; // If found, stop checking this subject
+            return; 
         } 
 
         // --- CHECK 2: Advanced Word-by-Word Fuzzy Match ---
-        // Split subject name into words (e.g., "Engineering", "Chemistry")
         const words = subjectName.split(" ");
         let highestSimilarity = 0;
 
-        // Check input against EACH word in the subject name
         words.forEach(word => {
             const similarity = getSimilarity(word, input);
             if (similarity > highestSimilarity) {
@@ -137,8 +148,6 @@ function globalSearch() {
             }
         });
 
-        // If ANY word matches well (threshold 0.5 = 50% match)
-        // OR if the whole sentence matches well
         const fullSimilarity = getSimilarity(subjectName, input);
         
         if (highestSimilarity > 0.5 || fullSimilarity > 0.4) {
@@ -163,7 +172,7 @@ function globalSearch() {
             resultsContainer.appendChild(li);
         });
     } else {
-        // Optional: Show "No results" message
+        // Show "No results" message (I fixed the CSS paste error here)
         resultsContainer.style.display = 'block';
         resultsContainer.innerHTML = '<li style="padding:10px; color:#666;">No subjects found...</li>';
     }
