@@ -64,7 +64,7 @@ const subjectDatabase = [
     { name: "Advanced Data Structures", url: "adsa.html", icon: "fa-diagram-project" },
     { name: "Database Mgmt Systems", url: "dbms.html", icon: "fa-database" },
     
-    // Sem 4 (NEW)
+    // Sem 4
     { name: "Probability And Statistics", url: "p&s.html", icon: "fa-chart-pie" },
     { name: "Software Engineering", url: "se.html", icon: "fa-gears" },
     { name: "Java Programming", url: "java.html", icon: "fa-mug-hot" },
@@ -172,7 +172,7 @@ function globalSearch() {
             resultsContainer.appendChild(li);
         });
     } else {
-        // Show "No results" message (I fixed the CSS paste error here)
+        // Show "No results" message (Cleaned up!)
         resultsContainer.style.display = 'block';
         resultsContainer.innerHTML = '<li style="padding:10px; color:#666;">No subjects found...</li>';
     }
